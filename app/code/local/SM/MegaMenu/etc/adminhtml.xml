@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <megamenu module="megamenu" translate="title">
+            <title>SM</title>
+            <sort_order>100</sort_order>
+            <children>
+                <menu>
+                    <title>Mega menu</title>
+                    <sort_order>0</sort_order>
+                    <action>adminhtml/adminhtml_menu/</action>
+                </menu>
+            </children>
+        </megamenu>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <megamenu module="megamenu" translate="title">
+                                        <title>Megamenu</title>
+                                        <sort_order>1</sort_order>
+                                    </megamenu>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <megamenu module="megamenu" translate="title">
+                        <title>Megamenu</title>
+                        <sort_order>1</sort_order>
+                        <children>
+                            <menu module="megamenu" translate="title">
+                                <title>Mega menu</title>
+                                <sort_order>0</sort_order>
+                                <action>megamenu/adminhtml_menu</action>
+                            </menu>
+                        </children>
+                    </megamenu>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
