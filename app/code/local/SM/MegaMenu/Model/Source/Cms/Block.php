@@ -12,7 +12,7 @@ class SM_MegaMenu_Model_Source_Cms_Block
     public function getAllBlock()
     {
         if(!$this->_options){
-            $this->_options = Mage::gi('cms/block_collection')
+            $this->_options = Mage::getResourceModel('cms/block_collection')
                 ->load()
                 ->toOptionArray();
 
