@@ -12,17 +12,12 @@ class SM_MegaMenu_Model_Source_Cms_Block
     public function getAllBlock()
     {
         if(!$this->_options){
-            $this->_options = Mage::getResourceModel('cms/block_collection')
-            ;
-        }
-        $option = array();
-        foreach($this->_options as $value){
-            $option[]=array(
-                'value' => $value->getIdentifier(),
-                'label' =>  $value->getTitle(),
-            );
+            $this->_options = Mage::gi('cms/block_collection')
+                ->load()
+                ->toOptionArray();
+
         }
 
-        return $option;
+        return $this->_options;
     }
 }

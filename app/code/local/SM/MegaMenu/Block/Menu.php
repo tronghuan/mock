@@ -113,4 +113,10 @@ class SM_MegaMenu_Block_Menu extends Mage_Core_Block_Template{
     function getStaticBlockContent($id){
 
     }
+
+    public function getAllBlock(){
+        $blockList = Mage::getModel('megamenu/source_cms_block')->getAllBlock();
+        echo "<pre>";
+        print_r($blockList);
+    }
 }
