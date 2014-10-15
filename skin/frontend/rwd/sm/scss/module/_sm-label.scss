@@ -1,0 +1,23 @@
+.labels-container {
+    position: relative;
+	.label {
+	    position: absolute;
+	    width: 50% !important;
+	}
+	.label-top-left {
+	    top: 0;
+	    left: 0;
+	}
+	.label-top-right {
+	    top: 0;
+	    right: 0;
+	}
+	.label-bottom-left {
+	    bottom: 0;
+	    left: 0;
+	}
+	.label-bottom-right {
+	    bottom: 0;
+	    right: 0;
+	}
+}

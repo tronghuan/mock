@@ -1,48 +1,61 @@
 <?xml version="1.0"?>
 <config>
     <menu>
-        <megamenu module="megamenu" translate="title">
-            <title>SM</title>
-            <sort_order>100</sort_order>
+        <sm_base>
             <children>
-                <menu>
-                    <title>Mega menu</title>
-                    <sort_order>0</sort_order>
-                    <action>adminhtml/adminhtml_menu/</action>
-                </menu>
+                <sm_megamenu translate="title" module="sm_megamenu">
+                    <title>Mega Menu</title>
+                    <sort_order>10</sort_order>
+                    <children>
+                        <manage_megamenu translate="title" module="sm_megamenu">
+                            <title>Manage Mega Menu</title>
+                            <sort_order>1</sort_order>
+                            <action>adminhtml/sm_megamenu/index</action>
+                        </manage_megamenu>
+                        <settings translate="title" module="sm_megamenu">
+                            <title>Settings</title>
+                            <sort_order>9</sort_order>
+                            <action>adminhtml/system_config/edit/section/sm_megamenu</action>
+                        </settings>
+                    </children>
+                </sm_megamenu>
             </children>
-        </megamenu>
+        </sm_base>
     </menu>
     <acl>
         <resources>
-            <all>
-                <title>Allow Everything</title>
-            </all>
             <admin>
                 <children>
+                    <sm_base>
+                        <children>
+                            <sm_megamenu translate="title">
+                                <title>Mega Menu</title>
+                                <sort_order>10</sort_order>
+                                <children>
+                                    <settings translate="title">
+                                        <title>Settings</title>
+                                        <sort_order>9</sort_order>
+                                    </settings>
+                                </children>
+                            </sm_megamenu>
+                        </children>
+                    </sm_base>
                     <system>
                         <children>
                             <config>
                                 <children>
-                                    <megamenu module="megamenu" translate="title">
-                                        <title>Megamenu</title>
+                                    <manage_megamenu translate="title">
+                                        <title>Manage Mega Menu</title>
                                         <sort_order>1</sort_order>
-                                    </megamenu>
+                                    </manage_megamenu>
+                                    <sm_megamenu translate="title">
+                                        <title>SM Meaga Menu Section</title>
+                                        <sort_order>10</sort_order>
+                                    </sm_megamenu>
                                 </children>
                             </config>
                         </children>
                     </system>
-                    <megamenu module="megamenu" translate="title">
-                        <title>Megamenu</title>
-                        <sort_order>1</sort_order>
-                        <children>
-                            <menu module="megamenu" translate="title">
-                                <title>Mega menu</title>
-                                <sort_order>0</sort_order>
-                                <action>megamenu/adminhtml_menu</action>
-                            </menu>
-                        </children>
-                    </megamenu>
                 </children>
             </admin>
         </resources>

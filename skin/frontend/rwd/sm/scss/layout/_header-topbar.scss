@@ -1,0 +1,46 @@
+.header-topbar {
+    height: 40px; line-height: 40px;
+    background-color: #aaa;
+
+    .header-topbar-container {
+        max-width: $max-content-width;
+        margin-left: auto;
+        margin-right: auto;
+
+        &:after {
+            @include clearfix;
+        }
+    }
+
+    .call-us {
+        i {
+            font-size: 20px;
+            padding-right: 5px;
+        }
+    }
+
+    .header-topbar-right {
+        float: right;
+    }
+    .form-language .icon {
+        background-image: url(../images/flag-default.jpg);
+        background-repeat: no-repeat;
+        width: 30px; height: 20px;
+
+        &.french {
+            background-image: url(../images/flag-french.jpg);
+        }
+        &.german {
+            background-image: url(../images/flag-german.jpg);
+        }
+    }
+}
+
+.inline-block-item {
+    @include inline-block;
+}
+@include bp(min-width, $bp-medium + 1) {
+    .header-topbar {
+        background: url(../images/bg/topbar-bg.jpg) repeat;
+    }
+}

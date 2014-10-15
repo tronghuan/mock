@@ -2,24 +2,70 @@
 <config>
     <modules>
         <SM_MegaMenu>
-            <version>0.1.0</version>
+            <version>1.0.0</version>
         </SM_MegaMenu>
     </modules>
     <frontend>
         <layout>
             <updates>
-                <megamenu_layout>
-                    <file>sm/megamenu.xml</file>
-                </megamenu_layout>
+                <sm_megamenu>
+                    <file>sm_megamenu.xml</file>
+                </sm_megamenu>
             </updates>
         </layout>
     </frontend>
+    <global>
+        <blocks>
+            <sm_megamenu>
+                <class>SM_MegaMenu_Block</class>
+            </sm_megamenu>
+            <page>
+                <rewrite>
+                    <html_topmenu>SM_MegaMenu_Block_Topmenu</html_topmenu>
+                </rewrite>
+            </page>
+        </blocks>
+        <helpers>
+            <sm_megamenu>
+                <class>SM_MegaMenu_Helper</class>
+            </sm_megamenu>
+        </helpers>
+        <models>
+            <sm_megamenu>
+                <class>SM_MegaMenu_Model</class>
+                <resourceModel>sm_megamenu_resource</resourceModel>
+            </sm_megamenu>
+            <sm_megamenu_resource>
+                <class>SM_MegaMenu_Model_Resource</class>
+                <entities>
+                    <sm_megamenu>
+                        <table>sm_megamenu</table>
+                    </sm_megamenu>
+                </entities>
+            </sm_megamenu_resource>
+        </models>
+        <resources>
+            <sm_megamenu_setup>
+                <setup>
+                    <module>SM_MegaMenu</module>
+                    <class>SM_MegaMenu_Model_Resource_Setup</class>
+                </setup>
+            </sm_megamenu_setup>
+        </resources>
+    </global>
+    <default>
+        <sm_megamenu>
+            <general>
+                <enable>1</enable>
+            </general>
+        </sm_megamenu>
+    </default>
     <admin>
         <routers>
             <adminhtml>
                 <args>
                     <modules>
-                        <SM_MegaMenu after="Mage_Adminhtml">SM_MegaMenu</SM_MegaMenu>
+                        <sm_megamenu before="Mage_Adminhtml">SM_MegaMenu_Adminhtml</sm_megamenu>
                     </modules>
                 </args>
             </adminhtml>
@@ -28,57 +74,10 @@
     <adminhtml>
         <layout>
             <updates>
-                <megamenu>
-                    <file>megamenu.xml</file>
-                </megamenu>
+                <sm_megamenu>
+                    <file>sm_megamenu.xml</file>
+                </sm_megamenu>
             </updates>
         </layout>
     </adminhtml>
-    <global>
-        <blocks>
-            <megamenu>
-                <class>SM_MegaMenu_Block</class>
-            </megamenu>
-        </blocks>
-        <models>
-            <megamenu>
-                <class>SM_MegaMenu_Model</class>
-                <resourceModel>megamenu_resource</resourceModel>
-            </megamenu>
-            <megamenu_resource>
-                <class>SM_MegaMenu_Model_Resource</class>
-                <entities>
-                    <menu>
-                        <table>sm_menu</table>
-                    </menu>
-                </entities>
-            </megamenu_resource>
-        </models>
-        <resources>
-            <sm_megamenu_setup>
-                <setup>
-                    <module>SM_MegaMenu</module>
-                    <class>SM_MegaMenu_Model_Resource_Setup</class>
-                </setup>
-                <connection>
-                    <use>core_setup</use>
-                </connection>
-            </sm_megamenu_setup>
-            <megamenu_write>
-                <connection>
-                    <use>core_write</use>
-                </connection>
-            </megamenu_write>
-            <megamenu_read>
-                <connection>
-                    <use>core_read</use>
-                </connection>
-            </megamenu_read>
-        </resources>
-        <helpers>
-            <megamenu>
-                <class>SM_MegaMenu_Helper</class>
-            </megamenu>
-        </helpers>
-    </global>
 </config>
